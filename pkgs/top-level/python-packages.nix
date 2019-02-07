@@ -5202,6 +5202,8 @@ in {
 
   qiskit-aer = callPackage ../development/python-modules/qiskit-aer {};
 
+  qiskit-terra = callPackage ../development/python-modules/qiskit-terra {};
+
   qasm2image = callPackage ../development/python-modules/qasm2image { };
 
   simpy = callPackage ../development/python-modules/simpy { };
