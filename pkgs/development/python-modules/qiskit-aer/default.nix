@@ -7,7 +7,7 @@
 , liblapack
 , scikit-build
 , cython
-, python
+, numpy
 }:
 
 buildPythonPackage rec {
@@ -31,13 +31,11 @@ buildPythonPackage rec {
     liblapack
   ];
 
-  #NIX_CFLAGS_COMPILE = [
-  #  "-I${python.outPath}/include/${python.executable}"
-  #];
+  propagatedBuildInputs = [
+    numpy
+  ];
 
-  #NIX_LDFLAGS = [
-  #  "-L${python.outPath}/lib"
-  #];
+  doCheck = false;
 
   meta = {
     description = "Aer is a high performance simulator for quantum circuits that includes noise models";
