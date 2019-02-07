@@ -31,13 +31,13 @@ buildPythonPackage rec {
     liblapack
   ];
 
-  NIX_CFLAGS_COMPILE = [
-    "-I${python.outPath}/include/${python.executable}"
-  ];
+  #NIX_CFLAGS_COMPILE = [
+  #  "-I${python.outPath}/include/${python.executable}"
+  #];
 
-  NIX_LDFLAGS = [
-    "-L${python.outPath}/lib"
-  ];
+  #NIX_LDFLAGS = [
+  #  "-L${python.outPath}/lib"
+  #];
 
   meta = {
     description = "Aer is a high performance simulator for quantum circuits that includes noise models";
