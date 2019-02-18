@@ -15,7 +15,8 @@
 , scipy
 , sympy
 , IBMQuantumExperience
-, qiskit-aer
+, vcrpy
+, jupyter
 }:
 
 buildPythonPackage rec {
@@ -49,7 +50,12 @@ buildPythonPackage rec {
     IBMQuantumExperience
   ];
 
-  doCheck = false;
+  checkInputs = [
+    vcrpy
+    jupyter
+  ];
+
+  checkPhase = "QISKIT_TESTS=skip_online python -m unittest discover -s test";
 
   meta = {
     description = "Terra provides the foundations for Qiskit. It allows the user to write quantum circuits easily, and takes care of the constraints of real hardware";
