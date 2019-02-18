@@ -8,6 +8,7 @@
 , scikit-build
 , cython
 , numpy
+, qiskit-terra
 }:
 
 buildPythonPackage rec {
@@ -35,7 +36,11 @@ buildPythonPackage rec {
     numpy
   ];
 
-  doCheck = false;
+  checkInputs = [
+    qiskit-terra
+  ];
+
+  checkPhase = "python -m unittest discover -s test";
 
   meta = {
     description = "Aer is a high performance simulator for quantum circuits that includes noise models";
